@@ -5,8 +5,16 @@ public class IsTreeABst {
   @EpiTest(testDataFile = "is_tree_a_bst.tsv")
 
   public static boolean isBinaryTreeBST(BinaryTreeNode<Integer> tree) {
-    // TODO - you fill in here.
-    return true;
+	  return isTreeABST(tree, Integer.MIN_VALUE, Integer.MAX_VALUE);
+  }
+  
+  private static boolean isTreeABST(BinaryTreeNode<Integer> tree, int min, int max) {
+	  if (tree == null) {
+		  return true;
+	  } else if (tree.data < min || tree.data > max) {
+		  return false;
+	  }
+	  return isTreeABST(tree.left, min, tree.data) && isTreeABST(tree.right, tree.data, max);
   }
 
   public static void main(String[] args) {

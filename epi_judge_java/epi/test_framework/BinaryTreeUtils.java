@@ -1,18 +1,18 @@
 
 package epi.test_framework;
 
-import epi.BinaryTree;
-import epi.BinaryTreeNode;
-import epi.BstNode;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.IdentityHashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 import java.util.Objects;
+import java.util.Queue;
 import java.util.Set;
+
+import epi.BinaryTree;
+import epi.BinaryTreeNode;
+import epi.BstNode;
 
 public class BinaryTreeUtils {
   public static class TreePath {
@@ -169,7 +169,7 @@ public class BinaryTreeUtils {
       throw new RuntimeException("Only integer keys are supported");
     }
 
-    @SuppressWarnings("unchecked") int value = (Integer)data;
+    int value = (Integer)data;
     if (value < min || value > max) {
       throw new TestFailure("Binary search tree constraints violation")
           .withMismatchInfo(

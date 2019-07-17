@@ -12,7 +12,7 @@ import java.util.List;
 public class TestFailure extends Exception {
   private String description;
   private List<Property> properties;
-
+  
   public enum PropertyName {
     EXCEPTION_MESSAGE,  // message of unhandled exception
     EXPLANATION,        // explanation from TSV file

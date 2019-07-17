@@ -14,11 +14,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+@SuppressWarnings("serial")
 public class TraitsFactory {
   private static final Map<Type, SerializationTraits> PRIMITIVE_TYPES_MAPPING;
 
   static {
-    PRIMITIVE_TYPES_MAPPING = new HashMap<>() {
+    PRIMITIVE_TYPES_MAPPING = new HashMap<Type, SerializationTraits>() {
       {
         put(String.class, new StringTraits());
         put(Integer.class, new IntegerTraits());
@@ -39,7 +40,8 @@ public class TraitsFactory {
     };
   }
 
-  public static SerializationTraits getTraits(Type type) {
+  @SuppressWarnings({ "unchecked", "rawtypes" })
+public static SerializationTraits getTraits(Type type) {
     if (type.equals(Void.TYPE)) {
       return new VoidTraits();
     }

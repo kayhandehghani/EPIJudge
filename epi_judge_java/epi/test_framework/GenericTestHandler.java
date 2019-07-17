@@ -1,9 +1,6 @@
 
 package epi.test_framework;
 
-import epi.test_framework.serialization_traits.SerializationTraits;
-import epi.test_framework.serialization_traits.TraitsFactory;
-
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -12,11 +9,13 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.function.BiPredicate;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+
+import epi.test_framework.serialization_traits.SerializationTraits;
+import epi.test_framework.serialization_traits.TraitsFactory;
 
 /**
  * The central class in generic test runner framework.
@@ -64,7 +63,7 @@ public class GenericTestHandler {
     this.func = func;
     this.comparator = comparator;
     hasExecutorHook = false;
-    paramTypes = List.of(func.getGenericParameterTypes());
+    paramTypes = Arrays.asList(func.getGenericParameterTypes());
 
     if (paramTypes.size() >= 1 &&
         paramTypes.get(0).equals(TimedExecutor.class)) {

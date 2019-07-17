@@ -1,12 +1,6 @@
 
 package epi.test_framework;
 
-import epi.test_framework.minimal_json.Json;
-import epi.test_framework.minimal_json.JsonObject;
-import epi.test_framework.minimal_json.JsonValue;
-import epi.test_framework.minimal_json.Member;
-import epi.test_framework.minimal_json.WriterConfig;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.annotation.Annotation;
@@ -18,6 +12,12 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BiPredicate;
+
+import epi.test_framework.minimal_json.Json;
+import epi.test_framework.minimal_json.JsonObject;
+import epi.test_framework.minimal_json.JsonValue;
+import epi.test_framework.minimal_json.Member;
+import epi.test_framework.minimal_json.WriterConfig;
 
 public class GenericTest {
   /**
@@ -156,7 +156,6 @@ public class GenericTest {
     return result;
   }
 
-  @SuppressWarnings("unchecked")
   private static void updateTestPassed(String testFile, int testsPassed) {
     Path problemMappingFilePath =
         Paths.get(TestUtils.getFilePathInJudgeDir("problem_mapping.js"));
@@ -205,10 +204,9 @@ public class GenericTest {
    * and for custom expected value type
    * (marked with {@link EpiTestExpectedType} annotation)
    */
-  @SuppressWarnings("unchecked")
   public static TestResult runFromAnnotations(String[] commandlineArgs,
                                               String testFile,
-                                              Class testClass) {
+                                              @SuppressWarnings("rawtypes") Class testClass) {
     BiPredicate<Object, Object> comparator =
         findCustomComparatorByAnnotation(testClass);
 
@@ -228,7 +226,7 @@ public class GenericTest {
 
   @SuppressWarnings("unchecked")
   private static BiPredicate<Object, Object> findCustomComparatorByAnnotation(
-      Class testClass) {
+      @SuppressWarnings("rawtypes") Class testClass) {
     for (Field f : testClass.getFields()) {
       Annotation annotation = f.getAnnotation(EpiTestComparator.class);
       if (annotation != null) {
@@ -248,7 +246,8 @@ public class GenericTest {
     return null;
   }
 
-  private static Field findCustomExpectedTypeByAnnotation(Class testClass) {
+  @SuppressWarnings("rawtypes")
+private static Field findCustomExpectedTypeByAnnotation(Class testClass) {
     for (Field f : testClass.getFields()) {
       if (f.getAnnotation(EpiTestExpectedType.class) != null) {
         return f;
