@@ -1,4 +1,5 @@
 /ABSqrt2$1.class
+/ABSqrt2$Number.class
 /ABSqrt2.class
 /AbsentValueArray$1.class
 /AbsentValueArray.class
@@ -31,6 +32,7 @@
 /BstMerge.class
 /BstNode.class
 /BstToSortedList$1.class
+/BstToSortedList$HeadAndTail.class
 /BstToSortedList.class
 /BuyAndSellStock$1.class
 /BuyAndSellStock.class
@@ -38,7 +40,6 @@
 /BuyAndSellStockKTimes.class
 /BuyAndSellStockTwice$1.class
 /BuyAndSellStockTwice.class
-/CalendarRendering$1.class
 /CalendarRendering$Endpoint.class
 /CalendarRendering$Event.class
 /CalendarRendering.class
@@ -63,10 +64,12 @@
 /CountInversions.class
 /DeadlockDetection$1.class
 /DeadlockDetection$Edge.class
+/DeadlockDetection$GraphVertex$Color.class
 /DeadlockDetection$GraphVertex.class
 /DeadlockDetection.class
 /DefectiveJugs$1.class
 /DefectiveJugs$Jug.class
+/DefectiveJugs$VolumeRange.class
 /DefectiveJugs.class
 /DeleteFromList$1.class
 /DeleteFromList.class
@@ -125,6 +128,7 @@
 /Hanoi$1.class
 /Hanoi.class
 /HuffmanCoding$1.class
+/HuffmanCoding$BinaryTree.class
 /HuffmanCoding$CharWithFrequency.class
 /HuffmanCoding.class
 /InsertInList$1.class
@@ -166,6 +170,7 @@
 /IsStringDecomposableIntoWords$1.class
 /IsStringDecomposableIntoWords.class
 /IsStringInMatrix$1.class
+/IsStringInMatrix$Attempt.class
 /IsStringInMatrix.class
 /IsStringPalindromicPunctuation$1.class
 /IsStringPalindromicPunctuation.class
@@ -174,6 +179,7 @@
 /IsTreeABst$1.class
 /IsTreeABst.class
 /IsTreeBalanced$1.class
+/IsTreeBalanced$BalanceStatusWithHeight.class
 /IsTreeBalanced.class
 /IsTreeSymmetric$1.class
 /IsTreeSymmetric.class
@@ -185,6 +191,7 @@
 /KClosestStars$Star.class
 /KClosestStars.class
 /KLargestInHeap$1.class
+/KLargestInHeap$HeapEntry.class
 /KLargestInHeap.class
 /KLargestValuesInBst$1.class
 /KLargestValuesInBst.class
@@ -228,6 +235,7 @@
 /LookAndSay$1.class
 /LookAndSay.class
 /LowestCommonAncestor$1.class
+/LowestCommonAncestor$Status.class
 /LowestCommonAncestor.class
 /LowestCommonAncestorCloseAncestor$1.class
 /LowestCommonAncestorCloseAncestor.class
@@ -236,13 +244,16 @@
 /LowestCommonAncestorWithParent$1.class
 /LowestCommonAncestorWithParent.class
 /LruCache$1.class
+/LruCache$2.class
 /LruCache$Op.class
 /LruCache.class
 /MajorityElement$1.class
 /MajorityElement.class
 /MatrixConnectedRegions$1.class
+/MatrixConnectedRegions$Coordinate.class
 /MatrixConnectedRegions.class
 /MatrixEnclosedRegions$1.class
+/MatrixEnclosedRegions$Coordinate.class
 /MatrixEnclosedRegions.class
 /MatrixRotation$1.class
 /MatrixRotation.class
@@ -254,8 +265,10 @@
 /MaxSafeHeight$1.class
 /MaxSafeHeight.class
 /MaxSquareSubmatrix$1.class
+/MaxSquareSubmatrix$MaxHW.class
 /MaxSquareSubmatrix.class
 /MaxSubmatrix$1.class
+/MaxSubmatrix$MaxHW.class
 /MaxSubmatrix.class
 /MaxSumSubarray$1.class
 /MaxSumSubarray.class
@@ -333,6 +346,10 @@
 /QueueWithMax$1.class
 /QueueWithMax$QueueOp.class
 /QueueWithMax.class
+/QueueWithMaxUsingDeque$1.class
+/QueueWithMaxUsingDeque$QueueOp.class
+/QueueWithMaxUsingDeque$QueueWithMax.class
+/QueueWithMaxUsingDeque.class
 /RandomPermutation$1.class
 /RandomPermutation.class
 /RandomSubset$1.class
@@ -341,11 +358,13 @@
 /RangeLookupInBst$Interval.class
 /RangeLookupInBst.class
 /RealSquareRoot$1.class
+/RealSquareRoot$Ordering.class
 /RealSquareRoot.class
 /RectangleIntersection$1.class
 /RectangleIntersection$Rectangle.class
 /RectangleIntersection.class
 /RefuelingSchedule$1.class
+/RefuelingSchedule$CityAndRemainingGas.class
 /RefuelingSchedule.class
 /RegularExpression$1.class
 /RegularExpression.class
@@ -360,6 +379,7 @@
 /ReverseBits.class
 /ReverseDigits$1.class
 /ReverseDigits.class
+/ReverseLinkedListIterative.class
 /ReverseSublist$1.class
 /ReverseSublist.class
 /ReverseWords$1.class
@@ -414,12 +434,14 @@
 /SortAlmostSortedArray$1.class
 /SortAlmostSortedArray.class
 /SortIncreasingDecreasingArray$1.class
+/SortIncreasingDecreasingArray$SubarrayType.class
 /SortIncreasingDecreasingArray.class
 /SortList$1.class
 /SortList.class
 /SortedArrayRemoveDups$1.class
 /SortedArrayRemoveDups.class
 /SortedArraysMerge$1.class
+/SortedArraysMerge$ArrayEntry.class
 /SortedArraysMerge.class
 /SortedListToBst$1.class
 /SortedListToBst.class
@@ -430,6 +452,7 @@
 /SpreadsheetEncoding$1.class
 /SpreadsheetEncoding.class
 /StackWithMax$1.class
+/StackWithMax$ElementWithCachedMax.class
 /StackWithMax$Stack.class
 /StackWithMax$StackOp.class
 /StackWithMax.class
@@ -438,6 +461,7 @@
 /StringIntegerInterconversion$1.class
 /StringIntegerInterconversion.class
 /StringTransformability$1.class
+/StringTransformability$StringWithDistance.class
 /StringTransformability.class
 /SubstringMatch$1.class
 /SubstringMatch.class
@@ -448,6 +472,7 @@
 /SumRootToLeaf$1.class
 /SumRootToLeaf.class
 /SunsetView$1.class
+/SunsetView$BuildingWithHeight.class
 /SunsetView.class
 /SwapBits$1.class
 /SwapBits.class
@@ -489,6 +514,3 @@
 /ValidIpAddresses.class
 /ZipList$1.class
 /ZipList.class
-/BSTTraversal.class
-/IsTreeABst$QWithMaxMin.class
-/ElementWithMinMax.class
