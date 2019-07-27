@@ -47,6 +47,49 @@ public class Heap {
 		System.out.println(topK(5, list.iterator()));
 		System.out.println(topK(list.size(), list.iterator()));
 		System.out.println(topK(list.size() + 1, list.iterator()));
+		
+		A a = new B();
+		a = new B(10);
 	}
 
+}
+
+class A {
+	
+	int a = 4;
+	{
+		System.out.println("Initi A, before: a is " + a);
+		this.a = 5;
+		System.out.println("Initi A, after: a is " + a);
+	}
+	
+	A (int a) {
+		this.a = a;
+		System.out.println("Constructor A: a is " + a);
+	}
+	
+	A () {
+		System.out.println("Constructor A: a is " + a);
+	}
+	
+}
+
+class B extends A {
+	
+	{
+		System.out.println("Initi B, before: a is " + a);
+		this.a = 6;
+		System.out.println("Initi B, after: a is " + a);
+	}
+
+	B (int a) {
+		super(a);
+		System.out.println("Constructor B: a is " + a);
+	}
+	
+	B () {
+		super();
+		System.out.println("Constructor B: a is " + a);
+	}
+	
 }
