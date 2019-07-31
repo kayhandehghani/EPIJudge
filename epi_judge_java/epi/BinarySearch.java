@@ -7,9 +7,38 @@ import java.util.Comparator;
 import java.util.List;
 
 public class BinarySearch {
+	
+	public static int findFirstElementLarger(List<Integer> A, int key) {
+		int result = -1;
+		
+		if (A == null) {
+			return result;
+		}
+		
+		int high = A.size() - 1;
+		int low = 0;
+		int mid = 0;
+		
+		while (low <= high) {
+			mid = (low + high) >>> 1;
+			int curr = A.get(mid);
+			
+			if (key >= curr) {
+				low = mid + 1;
+			} else {
+				if (result != -1) {
+					result = Math.min(mid, result);
+				} else {
+					result = mid;
+				}
+				high = mid - 1;
+			}
+		}
+		
+		return result;
+	}
 
 	public static int bsearch(int t, List<Integer> A) {
-
 		if (A == null) {
 			return -1;
 		}
@@ -39,7 +68,7 @@ public class BinarySearch {
 
 	public static void main(String[] args) {
 
-		List<Integer> list = Arrays.asList(-1, 0, 2, 5, 7, 7);
+		List<Integer> list = Arrays.asList(-1, 0, 2, 5, 7, 7, 7, 7, 8, 9, 9, 9, 9, 9, 9);
 
 		System.out.println(bsearch(4, list));
 		System.out.println(bsearch(-1, list));
@@ -63,6 +92,12 @@ public class BinarySearch {
 		System.out.println(searchStudent(studentsList, new Student("ac", 1.1), comparator));
 		System.out.println(searchStudent(studentsList, new Student("aa", 1), comparator));
 		
+		
+		System.out.println("Index of first element larger than -3 is:" + findFirstElementLarger(list, -3));
+		System.out.println("Index of first element larger than 4 is:" + findFirstElementLarger(list, 4));
+		System.out.println("Index of first element larger than 5 is:" + findFirstElementLarger(list, 5));
+		System.out.println("Index of first element larger than 7 is:" + findFirstElementLarger(list, 7));
+		System.out.println("Index of first element larger than 7 is:" + findFirstElementLarger(list, 8));
 
 	}
 
