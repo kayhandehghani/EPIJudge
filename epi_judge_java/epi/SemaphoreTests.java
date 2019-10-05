@@ -49,19 +49,15 @@ class ZeroEvenOdd {
 
 	// printNumber.accept(x) outputs "x", where x is an integer.
 	public void zero(IntConsumer printNumber) throws InterruptedException {
-		boolean lastEven = true;
-
 		for (int i = 0; i < n; i++) {
 			zeroSem.acquire();
 			printNumber.accept(0);
 
-			if (lastEven) {
+			if (i % 2 == 0) {
 				oddSem.release();
 			} else {
 				evenSem.release();
 			}
-
-			lastEven = !lastEven;
 		}
 
 	}

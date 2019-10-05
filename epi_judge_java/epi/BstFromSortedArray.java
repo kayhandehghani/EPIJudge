@@ -11,17 +11,17 @@ import epi.test_framework.TimedExecutor;
 public class BstFromSortedArray {
 
 	public static BstNode<Integer> buildMinHeightBSTFromSortedArray(List<Integer> A) {
-		return addNodesRecursively(0, A.size(), A);
+		return addNodesRecursively(0, A.size() - 1, A);
 	}
 
 	private static BstNode<Integer> addNodesRecursively(int l, int r, List<Integer> A) {
-		if (l >= r) {
+		if (l > r) {
 			return null;
 		}
 
 		int m = l + ((r - l) / 2);
 
-		return new BstNode<>(A.get(m), addNodesRecursively(l, m, A), addNodesRecursively(m + 1, r, A));
+		return new BstNode<>(A.get(m), addNodesRecursively(l, m - 1, A), addNodesRecursively(m + 1, r, A));
 
 	}
 
