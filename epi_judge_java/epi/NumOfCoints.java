@@ -16,10 +16,8 @@ public class NumOfCoints {
 		for (int i = 1; i <= val; i++) {
 			for (int j = 0; j < coins.length; j++) {
 				count++;
-				if (coins[j] <= i) {
-					if (cache[i - coins[j]] != Integer.MAX_VALUE) {
-						cache[i] = Math.min(cache[i - coins[j]] + 1, cache[i]);
-					}
+				if (coins[j] <= i && cache[i - coins[j]] != Integer.MAX_VALUE) {
+					cache[i] = Math.min(cache[i - coins[j]] + 1, cache[i]);
 				}
 			}
 		}
