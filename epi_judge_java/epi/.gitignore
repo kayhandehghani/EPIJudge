@@ -526,3 +526,6 @@
 /Trie$TrieNode.class
 /Trie.class
 /OptimalUtilization.class
+/MinCostToConnectAllNodes.class
+/MinCostToConnectAllNodes$UF$Node.class
+/MinCostToConnectAllNodes$UF.class
