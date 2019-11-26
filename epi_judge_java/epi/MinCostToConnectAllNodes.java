@@ -1,38 +1,29 @@
 package epi;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 public class MinCostToConnectAllNodes {
 
 	public int getMinCost(int n, int[][] edges, int[][] newEdges) {
-		UF uf = new UF();
+		UF uf = new UF(n);
 
 		for (int[] edge : edges) {
 			uf.union(edge[0], edge[1]);
 		}
 
-		Map<String, Integer> componentCosts = new HashMap<>();
+		Arrays.sort(newEdges, (ec1, ec2) -> ec1[2] - ec2[2]); // sort the costs in ascending order
 
+		int cost = 0;
 		for (int[] newEdge : newEdges) {
-			int componentId1 = uf.getComponentId(newEdge[0]);
-			int componentId2 = uf.getComponentId(newEdge[1]);
-			if (componentId1 == componentId2) continue;
-			String compoundId = getId(componentCosts, componentId1, componentId2);
-			componentCosts.put(compoundId,
-					componentCosts.containsKey(compoundId) ?
-							Math.min(componentCosts.get(compoundId), newEdge[2]) : newEdge[2]);
+			if (uf.getComponentId(newEdge[0]) == uf.getComponentId(newEdge[1])) continue;
+			uf.union(newEdge[0], newEdge[1]);
+			cost += newEdge[2];
+			if (uf.size() == 1) return cost;
 		}
 
-		System.out.println(uf.size());
-
-		return componentCosts.values().stream().reduce(0, Integer::sum);
-	}
-
-	private String getId(Map<String, Integer> componentCosts, int componentId1, int componentId2) {
-		if (componentCosts.containsKey(componentId1 + "_" + componentId2)) return componentId1 + "_" + componentId2;
-		if (componentCosts.containsKey(componentId2 + "_" + componentId1)) return componentId2 + "_" + componentId1;
-		return componentId1 + "_" + componentId2;
+		return -1;
 	}
 
 	public static void main(String[] args) {
@@ -41,6 +32,9 @@ public class MinCostToConnectAllNodes {
 				new int[][] {{1, 2, 5}, {1, 3, 10}, {1, 6, 2}, {5, 6, 5}}));
 		assert(18 == obj.getMinCost(7, new int[][]{{1, 4}, {4, 5}, {2, 3}},
 				new int[][] {{2, 4, 7}, {1, 2, 3}, {1, 7, 7}, {1, 3, 10}, {1, 6, 9}, {5, 6, 8}}));
+		assert(13 == obj.getMinCost(7, new int[][]{{1, 4}, {4, 5}, {2, 3}},
+				new int[][] {{2, 4, 7}, {1, 2, 3}, {2, 7, 2}, {1, 7, 7}, {1, 3, 10}, {1, 6, 9}, {5, 6, 8}}));
+		System.out.println("Done");
 
 	}
 
@@ -48,7 +42,8 @@ public class MinCostToConnectAllNodes {
 		private int size;
 		private Map<Integer, Node> map;
 
-		public UF() {
+		public UF(int n) {
+			this.size = n;
 			this.map = new HashMap<>();
 		}
 
@@ -78,7 +73,6 @@ public class MinCostToConnectAllNodes {
 		private Node find(int id) {
 			if (!map.containsKey(id)) {
 				map.put(id, new Node(id));
-				this.size++;
 			}
 
 			Node node = map.get(id);
